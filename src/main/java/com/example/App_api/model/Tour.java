@@ -29,7 +29,7 @@ public class Tour {
     private Double sale;
     private Boolean status;
     private String idAccount;
-    private List<Map<String, Object>> hanhtrinh;
+    private List<Map<String,Object>> hanhtrinh;
     private List<String> idCategory;
     private List<String> idService;
     private LocalDateTime timeUpdate;

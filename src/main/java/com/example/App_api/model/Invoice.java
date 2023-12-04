@@ -18,7 +18,7 @@ public class Invoice {
     @Id
     private String id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate dateInvoice = LocalDate.now();
+    private LocalDate dateInvoice=LocalDate.now();
     private int status;
     private String fullName;
     private String email;
@@ -35,5 +35,5 @@ public class Invoice {
     private String idSchedule;
     private String idAccount;
     private String nhanVien;
-    private boolean confirm = false;
+    private boolean confirm=false;
 }

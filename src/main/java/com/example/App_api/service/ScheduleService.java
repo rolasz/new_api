@@ -6,19 +6,20 @@ import com.example.App_api.model.Tour;
 import com.example.App_api.repository.InvoiceRepository;
 import com.example.App_api.repository.ScheduleRepository;
 import com.example.App_api.repository.TourRepository;
-import com.example.App_api.response.CountInvoice;
-import com.example.App_api.response.DetailSchedule;
-import com.example.App_api.response.ScheduleResponse;
-import com.example.App_api.response.TopTour;
+import com.example.App_api.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-@Service
+import java.util.List;
 
+@Service
 public class ScheduleService {
     @Autowired
     private ScheduleRepository scheduleRepository;
@@ -58,7 +59,7 @@ public class ScheduleService {
         long millis = System.currentTimeMillis();
         Date date = new java.sql.Date(millis);
         if(status.equals("0")){
-            return scheduleRepository.getListScheduleByTourIdActiveSeller(idTour,date);}
+        return scheduleRepository.getListScheduleByTourIdActiveSeller(idTour,date);}
         else return scheduleRepository.getListScheduleByTourIdPass(idTour,date);
     }
     public List<Schedule> getListScheduleActive(){
@@ -233,6 +234,7 @@ public class ScheduleService {
             m.put("tour",tour.getTitle());
             m.put("id",schedules.get(i).getId());
             m.put("progress",schedules.get(i).getProgress());
+            m.put("dayStart",schedules.get(i).getDayStart());
             m.put("addressStart",schedules.get(i).getAddressStart());
             m.put("idTour",tour.getId());
             m.put("status",schedules.get(i).isStatus());
@@ -257,7 +259,7 @@ public class ScheduleService {
         else if(loai.equals("dahuy")) schedules=scheduleRepository.getListScheduleDaHuy(date);
         else if(loai.equals("dangkhoihanh")) schedules=scheduleRepository.getListScheduleDangKhoiHanh(date);
         else schedules=scheduleRepository.getListScheduleDaChotDaHoanThanh(date);
-        // System.out.println(schedules.size());
+       // System.out.println(schedules.size());
 //        for (int i=0;i<schedules.size();i++){
 //            DetailSchedule m=new DetailSchedule();
 //            m.setTitle(tourRepository.findById(schedules.get(i).getIdTour()).get().getTitle());
@@ -324,4 +326,6 @@ public class ScheduleService {
         m.put("dh",h);
         return m;
     }
+
+
 }

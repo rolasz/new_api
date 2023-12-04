@@ -90,4 +90,6 @@ public class InvoiceController {
     public Map<String,Object> xuLyHoaDon(@PathVariable List<String> list){
         return invoiceService.xuLyHoaDon(list);
     }
+
+
 }

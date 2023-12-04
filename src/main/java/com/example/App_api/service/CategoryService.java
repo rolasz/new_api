@@ -1,6 +1,5 @@
 package com.example.App_api.service;
 
-
 import com.example.App_api.model.Category;
 import com.example.App_api.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +19,16 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
     public List<Category> getAll(){return categoryRepository.findAll();}
-    public Page<Category> findCategory(int page, int size, String sort){
+    public  Page<Category> findCategory(int page,int size,String sort){
         if(page<=0) page=1;
         return categoryRepository.findAll(PageRequest.of(page-1,size,Sort.by(sort).descending()));
     };
     public List<Category> getListCategoryActive(){
         return categoryRepository.getListCategoryActive();
     }
-
     public List<Category> getCategoryHome(){
         return categoryRepository.getListCategoryHome();
-    }
+    };
     public Category findById(String id){
         try {
             return categoryRepository.findById(id).get();
@@ -44,7 +42,7 @@ public class CategoryService {
     public Map<String,Object> addCategory(Category category){
         Map<String,Object> m=new HashMap<>();
         if(categoryRepository.findByName(category.getName())==null){
-            LocalDateTime now= LocalDateTime.now();
+            LocalDateTime now=LocalDateTime.now();
             category.setTimeUpdate(now);
             categoryRepository.save(category);
             m.put("message","Thêm mới thành công");
@@ -69,10 +67,11 @@ public class CategoryService {
 
     }
     public String deleteCategory(String id){
-        categoryRepository.deleteById(id);
-        return "Deleted";
+            categoryRepository.deleteById(id);
+            return "Deleted";
     }
     public int countCategory(){
         return categoryRepository.findAll().size();
     }
+
 }

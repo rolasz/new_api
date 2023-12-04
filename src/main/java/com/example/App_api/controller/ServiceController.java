@@ -33,7 +33,7 @@ public class ServiceController {
     @PostMapping()
     public Map<String,Object> addNew(@RequestBody Service service){
         return serviceService.addNew(service);
-    }
+}
     @PutMapping
     public Map<String,Object> update(@RequestBody Service service){
         return serviceService.update(service);

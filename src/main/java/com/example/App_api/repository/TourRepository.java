@@ -16,9 +16,11 @@ public interface TourRepository extends MongoRepository<Tour,String> {
 
     @Query("{'idCategory':{$all:[?0]}}")
     List<Tour> getListTourByCategory(String idCategory);
-
-    @Aggregation(pipeline = {"{'$match':{ $text:{ $search: ?0} }}","{'$match':{'status': true}}"})
-    List<Tour> searchTour(String key);
+  //  @Query("{$or: [{'title': { $regex: /?0/ ,$options:'i' }}, {'address': { $regex: /?0/ ,$options:'i' }}]}")
+//    @Query("{ $text:{ $search: ?0} }")
+//    List<Tour> searchTour(String key);
+  @Aggregation(pipeline = {"{'$match':{ $text:{ $search: ?0} }}","{'$match':{'status': true}}"})
+  List<Tour> searchTour(String key);
 
     @Query("{'status':true}")
     List<Tour> getListTourActive();
@@ -36,7 +38,7 @@ public interface TourRepository extends MongoRepository<Tour,String> {
     List<Tour> filterNoCategory(String address,double gt,double lt,int sort);
     @Aggregation(pipeline = {"{'$match':{'price':{$gt:?0}}}","{'$match':{'price':{$lt:?1}}}","{'$sort':{'price':?2}}","{'$match':{'status':true}}"})
     List<Tour> filterNoAddressNoCategory(double gt,double lt,int sort);
-    @Aggregation(pipeline = {"{'$match':{'idCategory':{$in:[?0]}}","{ '$count' : 'count' }"})
+   @Aggregation(pipeline = {"{'$match':{'idCategory':{$in:[?0]}}","{ '$count' : 'count' }"})
     Map<String,Object> countByIdCategory(String id);
 
 }

@@ -5,6 +5,7 @@ import com.example.App_api.model.Schedule;
 import com.example.App_api.model.Tour;
 import com.example.App_api.repository.InvoiceRepository;
 import com.example.App_api.response.CountInvoice;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -135,7 +136,7 @@ public class InvoiceService {
         Invoice invoice=invoiceRepository.findById(id).get();
         invoice.setStatus(1);
         invoiceRepository.save(invoice);
-        //  emailSenderService.sendMailHtml(invoice.getEmail(),"Thông báo hóa đơn","Xac nhan hoa don thanh cong, Vui long thanh toan");
+      //  emailSenderService.sendMailHtml(invoice.getEmail(),"Thông báo hóa đơn","Xac nhan hoa don thanh cong, Vui long thanh toan");
         return "Xác nhân thành công";
     }
     public String huyHoaDon(String id,String lyDo){
@@ -143,7 +144,7 @@ public class InvoiceService {
         invoice.setStatus(3);
         invoice.setConfirm(false);
         invoiceRepository.save(invoice);
-        //  emailSenderService.sendMailHtml(invoice.getEmail(),"Thông báo hóa đơn","Tour cua ban da bi huy vi "+lyDo);
+      //  emailSenderService.sendMailHtml(invoice.getEmail(),"Thông báo hóa đơn","Tour cua ban da bi huy vi "+lyDo);
         return "Hủy thành công";
     }
     public String thanhToan(String id,String nhanVien){
@@ -266,5 +267,6 @@ public class InvoiceService {
         }
         return list;
     }
+
 
 }

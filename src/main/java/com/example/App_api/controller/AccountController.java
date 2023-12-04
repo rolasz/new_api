@@ -1,6 +1,5 @@
 package com.example.App_api.controller;
 
-
 import com.example.App_api.model.Account;
 import com.example.App_api.request.ChangePasswordRequest;
 import com.example.App_api.response.AccountResponse;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+
 @RestController
 @RequestMapping("/account")
 @CrossOrigin
@@ -74,6 +74,5 @@ public class AccountController {
     public Map<String,Object> update(@RequestBody Account account){
         return accountService.editAccount(account);
     }
-
 
 }

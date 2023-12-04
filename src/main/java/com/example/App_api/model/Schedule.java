@@ -1,5 +1,4 @@
 package com.example.App_api.model;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-
 @Document(collection = "schedule")
 @Data
 @AllArgsConstructor
@@ -24,7 +22,7 @@ public class Schedule {
     private Date dayStart;
     private String addressStart;
     private int expectedPeople;
-    // private int daDat;
+//    private int daDat;
     private String idTour;
     private boolean status;
     private int progress;

@@ -1,6 +1,5 @@
 package com.example.App_api.repository;
 
-import com.example.App_api.model.Rating;
 import com.example.App_api.model.Request;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

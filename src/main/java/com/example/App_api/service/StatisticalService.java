@@ -1,6 +1,5 @@
 package com.example.App_api.service;
 
-import org.springframework.stereotype.Service;
 import com.example.App_api.model.Account;
 import com.example.App_api.model.Category;
 import com.example.App_api.model.Invoice;
@@ -15,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+
 @Service
 public class StatisticalService {
     @Autowired
@@ -237,6 +237,8 @@ public class StatisticalService {
         if (sl>topTours.size()) sl=topTours.size();
         return topTours.subList(0,sl);
     }
+
+
 
 
 

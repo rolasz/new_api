@@ -90,7 +90,7 @@ public class ScheduleController {
     }
     @PutMapping
     public Map<String,Object> updateSchedule(@RequestBody Schedule schedule){
-        return scheduleService.updateSchedule(schedule);
+            return scheduleService.updateSchedule(schedule);
     }
     @PutMapping("/huytour/{id}/{lydo}")
     public Map<String,Object> huySchedule(@PathVariable String id,@PathVariable String lydo){

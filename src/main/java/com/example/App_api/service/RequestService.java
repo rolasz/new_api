@@ -5,6 +5,7 @@ import com.example.App_api.model.Request;
 import com.example.App_api.model.Schedule;
 import com.example.App_api.model.Tour;
 import com.example.App_api.repository.RequestRepository;
+import org.jetbrains.annotations.Async;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

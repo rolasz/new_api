@@ -55,6 +55,7 @@ public class TourService {
         return total/ratings.size();
     }
 
+
     public List<Tour> getTourFilter(@NotNull FilterTour filterTour){
         if(filterTour.getAddress()==null){
             if(filterTour.getIdCategory()==null) return tourRepository.filterNoAddressNoCategory(filterTour.getGt(),filterTour.getLt(),filterTour.getSort());

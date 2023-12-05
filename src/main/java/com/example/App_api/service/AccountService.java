@@ -1,17 +1,14 @@
 package com.example.App_api.service;
 
+
 import com.example.App_api.model.Account;
 import com.example.App_api.repository.AccountRepository;
-
 import com.example.App_api.response.AccountResponse;
-import com.google.firebase.auth.hash.Bcrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -71,6 +68,7 @@ public class AccountService {
             account1.setImage(account.getImage());
             account1.setNameAccount(account.getNameAccount());
             accountRepository.save(account1);
+//            if(!account1.isStatus()){
             if(account1.isStatus()==false){
                 m.put("status","0");
                 m.put("message","Tài khoản đã bị khóa");
@@ -125,7 +123,7 @@ public class AccountService {
     }
     public AccountResponse findAccountByEmail(String email){
         if(accountRepository.getAcountByEmail(email)==null){
-           return null;
+            return null;
         }
         return accountRepository.getAcountByEmail(email);
     }
@@ -226,7 +224,7 @@ public class AccountService {
                 "                  <td valign=\"top\" align=\"center\" style=\"padding:0;Margin:0;width:582px\">\n" +
                 "                   <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px\">\n" +
                 "                     <tr style=\"border-collapse:collapse\">\n" +
-                "                      <td align=\"center\" style=\"padding:40px;Margin:0;font-size:0px\"><a target=\"_blank\" href=\"https://viewstripo.email\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#B7BDC9;font-size:20px\"><img class=\"adapt-img\" src=\"https://hoctot.hocmai.vn/wp-content/uploads/2020/02/dang-ky-ngay.gif\" alt=\"Newsletter article #1\" style=\"display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border-radius:3px 3px 0px 0px\" title=\"Newsletter article #1\" width=\"502\"></a></td>\n" +
+//                "                      <td align=\"center\" style=\"padding:40px;Margin:0;font-size:0px\"><a target=\"_blank\" href=\"https://viewstripo.email\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#B7BDC9;font-size:20px\"><img class=\"adapt-img\" src=\"https://hoctot.hocmai.vn/wp-content/uploads/2020/02/dang-ky-ngay.gif\" alt=\"Newsletter article #1\" style=\"display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;border-radius:3px 3px 0px 0px\" title=\"Newsletter article #1\" width=\"502\"></a></td>\n" +
                 "                     </tr>\n" +
                 "                   </table></td>\n" +
                 "                 </tr>\n" +
@@ -258,10 +256,10 @@ public class AccountService {
                 "                      <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><img class=\"adapt-img\" src=\"https://youmatter.world/app/uploads/sites/2/2019/11/travel-world.jpg\" alt style=\"display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic\" width=\"600\"></td>\n" +
                 "                     </tr>\n" +
                 "                     <tr style=\"border-collapse:collapse\">\n" +
-                "                      <td align=\"center\" style=\"Margin:0;padding-top:10px;padding-bottom:15px;padding-left:20px;padding-right:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;line-height:27px;color:#000000;font-size:18px\">Nếu như bạn có bất kỳ câu hỏi nào hoặc không thực hiện yêu cầu này có thể bỏ qua hoặc liên hệ với chúng tôi qua địa chỉ email:&nbsp;<em><strong><a href=\"mailto:thanhtinhtrinhtk123@gmail.com\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#ff0000;font-size:16px\">thanhtinhtrinhtk123@gmail.com</a></strong></em><br>Đây là địa chỉ email tự động, vui lòng không trả lời qua email này!.</p></td>\n" +
+                "                      <td align=\"center\" style=\"Margin:0;padding-top:10px;padding-bottom:15px;padding-left:20px;padding-right:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;line-height:27px;color:#000000;font-size:18px\">Nếu như bạn có bất kỳ câu hỏi nào hoặc không thực hiện yêu cầu này có thể bỏ qua hoặc liên hệ với chúng tôi qua địa chỉ email:&nbsp;<em><strong><a href=\"mailto:baotinnguyen4@gmail.com\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#ff0000;font-size:16px\">baotinnguyen4@gmail.com</a></strong></em><br>Đây là địa chỉ email tự động, vui lòng không trả lời qua email này!.</p></td>\n" +
                 "                     </tr>\n" +
                 "                     <tr style=\"border-collapse:collapse\">\n" +
-                "                      <td align=\"right\" style=\"Margin:0;padding-top:10px;padding-bottom:15px;padding-left:20px;padding-right:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;line-height:27px;color:#000000;font-size:18px\"><em><strong>TRAVEL APP VERIFY</strong></em></p></td>\n" +
+                "                      <td align=\"right\" style=\"Margin:0;padding-top:10px;padding-bottom:15px;padding-left:20px;padding-right:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'comic sans ms', 'marker felt-thin', arial, sans-serif;line-height:27px;color:#000000;font-size:18px\"><em><strong>TOUR-VIET VERIFY</strong></em></p></td>\n" +
                 "                     </tr>\n" +
                 "                   </table></td>\n" +
                 "                 </tr>\n" +
@@ -297,8 +295,10 @@ public class AccountService {
                 " </body>\n" +
                 "</html>\n";
 
+//        String emailBody;
+//        emailBody = b;
         String emailBody=b;
-        String subjectEmail="Travel app Verify";
+        String subjectEmail="Tour-Viet Verify";
         emailSenderService.sendMailHtml(email,subjectEmail,emailBody);
         return code;
     }
@@ -330,10 +330,10 @@ public class AccountService {
         return m;
     }
     public String changeStatus(Account account){
-       Account account1=getAccountById(account.getId());
-       account1.setStatus(account.isStatus());
-       accountRepository.save(account1);
-       return "thanh cong";
+        Account account1=getAccountById(account.getId());
+        account1.setStatus(account.isStatus());
+        accountRepository.save(account1);
+        return "thanh cong";
     }
     public String changeTypeAccount(Account account){
         Account account1=getAccountById(account.getId());
@@ -355,7 +355,7 @@ public class AccountService {
                 account.setPassword(newPassword);
                 accountRepository.save(account);
                 if(account.getEmail()!=null)
-                emailSenderService.sendMail(account.getEmail(),"Travel app thông báo","Mật khẩu tài khoản của bạn đã thay đổi vào lúc "+java.time.LocalDateTime.now());
+                    emailSenderService.sendMail(account.getEmail(),"Tour-Viet thông báo","Mật khẩu tài khoản của bạn đã thay đổi vào lúc "+ LocalDateTime.now());
                 m.put("message","Thay đổi mật khẩu thành công, vui lòng đăng nhập lại");
                 m.put("status","1");
                 return m;
@@ -367,6 +367,4 @@ public class AccountService {
         m.put("status","0");
         return m;
     }
-
-
 }
